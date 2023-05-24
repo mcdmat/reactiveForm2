@@ -1,0 +1,36 @@
+<!-- <p>{{ signupForm.controls}}</p> -->
+<form [formGroup]="signupForm" (ngSubmit)="(signupForm.valid)">
+  <label>
+    Nom d'utilisateur:
+    <input type="text" formControlName="username" />
+  </label>
+  <label>
+    Email:
+    <input type="email" formControlName="email" />
+  </label>
+  <label>
+    Mot de passe:
+    <input type="password" formControlName="password" />
+  </label>
+  <label >
+    Adresse:
+    <input
+      type="text"
+      formControlName="street"
+      placeholder="n° voie nom de la voie"
+    />
+    <input type="text" formControlName="postalCode" placeholder="code postal" />
+    <input type="text" formControlName="city" placeholder="ville" />
+  </label>
+  <button type="submit" [disabled]="signupForm.invalid" (click)="signUp()">
+   S'inscrire
+  </button>
+</form>
+<div>{{ user.username }}</div>
+<div>{{ user.email }}</div>
+<div>{{ user.password }}</div>
+<span>
+  {{ user.street }}
+  {{ user.postalCode }}
+  {{ user.city }}</span
+>
