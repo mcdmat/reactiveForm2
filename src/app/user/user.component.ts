@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {
   FormBuilder,
+  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
@@ -12,28 +13,20 @@ import { UserModel } from '../usermodel';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent {
-  user!: UserModel;
-  signupForm!: FormGroup;
-  // userUsername = '';
-  // userEmail = '';
-  // userPassword = '';
-  // userStreet = '';
-  // userPostalCode = '';
-  // userCity = '';
-
-  constructor(private fb: FormBuilder) {}
-  ngOnInit() {
-    this.signupForm = this.fb.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required, Validators.minLength(4)],
-      street: ['', Validators.required],
-      postalCode: ['', Validators.required, Validators.minLength(5)],
-      city: ['', Validators.required],
-    });
-  }
+  display: boolean = false;
+  user = {
+    username: new FormControl (''),
+    email: new FormControl (''),
+    password: new FormControl (''),
+    street: new FormControl (''),
+    postalCode: new FormControl (''),
+    city: new FormControl (''),
+ };
+  
 
   signUp() {
-    this.user = this.signupForm.value;
+this.display = true;
   }
+  
+  
 }

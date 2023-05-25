@@ -1,36 +1,38 @@
-<!-- <p>{{ signupForm.controls}}</p> -->
-<form [formGroup]="signupForm" (ngSubmit)="(signupForm.valid)">
+
+<form >
   <label>
     Nom d'utilisateur:
-    <input type="text" formControlName="username" />
+    <input type="text" [formControl]="user.username" />
   </label>
   <label>
     Email:
-    <input type="email" formControlName="email" />
+    <input type="email" [formControl]="user.email" />
   </label>
   <label>
     Mot de passe:
-    <input type="password" formControlName="password" />
+    <input type="password" [formControl]="user.password" />
   </label>
   <label >
     Adresse:
     <input
       type="text"
-      formControlName="street"
+      [formControl]="user.street"
       placeholder="n° voie nom de la voie"
     />
-    <input type="text" formControlName="postalCode" placeholder="code postal" />
-    <input type="text" formControlName="city" placeholder="ville" />
+    <input type="text" [formControl]="user.postalCode" placeholder="code postal" />
+    <input type="text" [formControl]="user.city" placeholder="ville" />
   </label>
-  <button type="submit" [disabled]="signupForm.invalid" (click)="signUp()">
+  <button type="button" (click)="signUp()">
    S'inscrire
   </button>
 </form>
-<div>{{ user.username }}</div>
-<div>{{ user.email }}</div>
-<div>{{ user.password }}</div>
+<section *ngIf="display">
+<div>{{ user.username.value }}</div>
+<div>{{ user.email.value }}</div>
+<div>{{ user.password.value }}</div>
 <span>
-  {{ user.street }}
-  {{ user.postalCode }}
-  {{ user.city }}</span
+  {{ user.street.value }}
+  {{ user.postalCode.value }}
+  {{ user.city.value }}</span
 >
+</section>
