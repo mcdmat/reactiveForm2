@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import {
-  FormBuilder,
   FormControl,
-  FormGroup,
-  Validators,
 } from '@angular/forms';
-import { UserModel } from '../usermodel';
 
 @Component({
   selector: 'app-user',
